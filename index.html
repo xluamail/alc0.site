@@ -118,37 +118,6 @@
 </head>
 <body>
 
-  <script>
-function changeTitleIfUAE(countryCode) {
-    if (countryCode === "AE") {
-        document.getElementById("title").textContent = "Alcohol Delivery Dubai";
-    }
-}
-
-// 1-й API: ipapi.co
-fetch("https://ipapi.co/json/")
-    .then(response => {
-        if (!response.ok) throw new Error("Помилка API ipapi.co");
-        return response.json();
-    })
-    .then(data => {
-        changeTitleIfUAE(data.country_code);
-    })
-    .catch(() => {
-        // Якщо перший API не працює — використовуємо резервний
-        fetch("https://ipwho.is/")
-            .then(response => {
-                if (!response.ok) throw new Error("Помилка API ipwho.is");
-                return response.json();
-            })
-            .then(data => {
-                changeTitleIfUAE(data.country_code);
-            })
-            .catch(error => {
-                console.error("Обидва API недоступні:", error);
-            });
-    });
-</script>
   <header>
     <div class="logo">Dubai AI_C0H0I Delivery</div>
     <a href="https://wa.me/79251959399" class="whatsapp-btn" target="_blank">Order via WhatsApp</a>
@@ -225,6 +194,7 @@ fetch("https://ipapi.co/json/")
   </footer>
 </body>
 </html>
+
 
 
 
