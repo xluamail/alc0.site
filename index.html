@@ -48,7 +48,15 @@
       background: #f2f2f2;
       color: #000000;
     }
-    .hero main-title {
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero main {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+     .main {
       font-size: 2.5rem;
       margin-bottom: 1rem;
     }
@@ -112,8 +120,8 @@
 
   <script>
 function changeTitleIfUAE(countryCode) {
-    if (countryCode === "UA") {
-        document.getElementById("main-title").textContent = "Alcohol Delivery Dubai";
+    if (countryCode === "AE") {
+        document.getElementById("title").textContent = "Alcohol Delivery Dubai";
     }
 }
 
@@ -147,7 +155,7 @@ fetch("https://ipapi.co/json/")
   </header>
 
   <section class="hero">
-    <h1 id="main-title"Quick & Trusted AI_C0H0I Delivery</h1>
+    <h1 id="title"Quick & Trusted AI_C0H0I Delivery</h1>
     <p>Get AI_C0H0I delivered to your door anywhere in Dubai. We combine speed, privacy, and reliability to ensure your order arrives exactly when you need it.</p>
     <div class="center-btn">
       <a href="https://wa.me/79251959399" class="whatsapp-btn" target="_blank">Request AI_C0H0I Delivery</a>
@@ -217,6 +225,7 @@ fetch("https://ipapi.co/json/")
   </footer>
 </body>
 </html>
+
 
 
 
