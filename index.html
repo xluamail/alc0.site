@@ -109,13 +109,45 @@
   </style>
 </head>
 <body>
+
+  <script>
+function changeTitleIfUAE(countryCode) {
+    if (countryCode === "UA") {
+        document.getElementById("main-title").textContent = "Alcohol Delivery Dubai";
+    }
+}
+
+// 1-й API: ipapi.co
+fetch("https://ipapi.co/json/")
+    .then(response => {
+        if (!response.ok) throw new Error("Помилка API ipapi.co");
+        return response.json();
+    })
+    .then(data => {
+        changeTitleIfUAE(data.country_code);
+    })
+    .catch(() => {
+        // Якщо перший API не працює — використовуємо резервний
+        fetch("https://ipwho.is/")
+            .then(response => {
+                if (!response.ok) throw new Error("Помилка API ipwho.is");
+                return response.json();
+            })
+            .then(data => {
+                changeTitleIfUAE(data.country_code);
+            })
+            .catch(error => {
+                console.error("Обидва API недоступні:", error);
+            });
+    });
+</script>
   <header>
     <div class="logo">Dubai AI_C0H0I Delivery</div>
     <a href="https://wa.me/79251959399" class="whatsapp-btn" target="_blank">Order via WhatsApp</a>
   </header>
 
   <section class="hero">
-    <h1>Quick & Trusted AI_C0H0I Delivery</h1>
+    <h1 id="main-title"Quick & Trusted AI_C0H0I Delivery</h1>
     <p>Get AI_C0H0I delivered to your door anywhere in Dubai. We combine speed, privacy, and reliability to ensure your order arrives exactly when you need it.</p>
     <div class="center-btn">
       <a href="https://wa.me/79251959399" class="whatsapp-btn" target="_blank">Request AI_C0H0I Delivery</a>
@@ -185,6 +217,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
